@@ -307,7 +307,7 @@ namespace KindredArenas.Services
                                 lastAlertedPlayer[charEntity] = Time.time;
                                 var pc = charEntity.Read<PlayerCharacter>();
                                 var user = pc.UserEntity.Read<User>();
-                                ServerChatUtils.SendSystemMessageToClient(Core.EntityManager, user, "You have entered a region that is always <color=red>PvP</color>");
+                                ServerChatUtils.SendSystemMessageToClient(Core.EntityManager, user, "你已經進入了一個永遠存在 <color=red>PvP</color> 的區域");
                             }
                             Buffs.RemoveBuff(charEntity, Prefabs.Buff_General_PvPProtected);
                         }
@@ -321,7 +321,7 @@ namespace KindredArenas.Services
                             lastAlertedPlayer[charEntity] = Time.time;
                             var pc = charEntity.Read<PlayerCharacter>();
                             var user = pc.UserEntity.Read<User>();
-                            ServerChatUtils.SendSystemMessageToClient(Core.EntityManager, user, "You have entered an Arena and can engage in <color=red>PvP</color> combat");
+                            ServerChatUtils.SendSystemMessageToClient(Core.EntityManager, user, "你進入了玩家戰鬥區域 , 每個玩家將可以 <color=red>互相傷害</color>");
                         }
                         Buffs.RemoveBuff(charEntity, Prefabs.Buff_General_PvPProtected);
                     }
@@ -335,11 +335,11 @@ namespace KindredArenas.Services
                             if (inPvpRegion.Contains(charEntity))
                             {
                                 inPvpRegion.Remove(charEntity);
-                                ServerChatUtils.SendSystemMessageToClient(Core.EntityManager, user, "You have left a PvP region and are <color=green>safe</color> from PvP combat");
+                                ServerChatUtils.SendSystemMessageToClient(Core.EntityManager, user, "你離開了玩家戰鬥區域 , 目前你是 <color=green>安全</color> 的");
                             }
                             else
                             {
-                                ServerChatUtils.SendSystemMessageToClient(Core.EntityManager, user, "You have left an Arena and are <color=green>safe</color> from PvP combat");
+                                ServerChatUtils.SendSystemMessageToClient(Core.EntityManager, user, "你離開了玩家戰鬥區域 , 目前你是 <color=green>安全</color> 的");
                             }
                         }
                         messagedHasBuffFromZone.Add(charEntity);
